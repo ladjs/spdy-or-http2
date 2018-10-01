@@ -1,0 +1,117 @@
+{
+  "name": "spdy-or-http2",
+  "description": "Node.js ponyfill for HTTP/2 support (uses native http2 module or falls back to spdy)",
+  "version": "1.0.0",
+  "author": "Nick Baugh <niftylettuce@gmail.com> (https://niftylettuce.com)",
+  "ava": {
+    "failFast": true,
+    "verbose": true
+  },
+  "bugs": {
+    "url": "https://github.com/niftylettuce/spdy-or-http2/issues",
+    "email": "niftylettuce@gmail.com"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "contributors": [
+    "Nick Baugh <niftylettuce@gmail.com> (https://niftylettuce.com)"
+  ],
+  "dependencies": {
+    "spdy": "^3.4.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "ava": "^0.25.0",
+    "codecov": "^3.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-xo-lass": "^1.0.3",
+    "eslint-plugin-prettier": "^3.0.0",
+    "fixpack": "^2.3.1",
+    "husky": "^1.1.0",
+    "lint-staged": "^7.3.0",
+    "nyc": "^13.0.1",
+    "prettier": "^1.14.3",
+    "remark-cli": "^5.0.0",
+    "remark-preset-github": "^0.0.8",
+    "semver": "^5.5.1",
+    "xo": "^0.23.0"
+  },
+  "engines": {
+    "node": ">=6.4"
+  },
+  "homepage": "https://github.com/niftylettuce/spdy-or-http2",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [
+    "http",
+    "http2",
+    "https",
+    "polyfill",
+    "ponyfill",
+    "spdy"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.md": [
+        "remark . -qfo",
+        "git add"
+      ],
+      "package.json": [
+        "fixpack",
+        "git add"
+      ]
+    }
+  },
+  "main": "index.js",
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "html",
+      "text"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-github"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niftylettuce/spdy-or-http2"
+  },
+  "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "xo && remark . -qfo",
+    "nyc": "cross-env NODE_ENV=test nyc ava",
+    "test": "npm run lint && npm run ava",
+    "test-coverage": "npm run lint && npm run nyc"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "extends": [
+      "xo-lass"
+    ]
+  }
+}
