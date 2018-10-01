@@ -36,12 +36,9 @@ yarn add spdy-or-http2
 ## Usage
 
 ```js
-const SpdyOrHttp2 = require('spdy-or-http2');
+const http2 = require('spdy-or-http2');
 
-const spdyOrHttp2 = new SpdyOrHttp2();
-
-console.log(spdyOrHttp2.renderName());
-// script
+// ...
 ```
 
 
