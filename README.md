@@ -7,7 +7,7 @@
 [![made with lass](https://img.shields.io/badge/made_with-lass-95CC28.svg)](https://lass.js.org)
 [![license](https://img.shields.io/github/license/niftylettuce/spdy-or-http2.svg)](LICENSE)
 
-> Node.js ponyfill for HTTP/2 support (uses native http2 module or falls back to spdy)
+> Node.js ponyfill for HTTP/2 support (uses native http2 module or falls back to spdy if Node version is &lt; v10.10.0; when http2 is marked as no longer experimental)
 
 
 ## Table of Contents
